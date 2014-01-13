@@ -1,6 +1,7 @@
-# validate.js
+# validate.js 日本語版
 
 validate.js is a lightweight JavaScript form validation library inspired by CodeIgniter.
+validate.jsはCodeIgniterにインスパイアされて開発された検証ライブラリのJavaScript軽量フレームワークです。
 
 ## Features
 
@@ -49,9 +50,6 @@ You can view everything at http://rickharrison.github.com/validate.js
 
 jQuery: https://github.com/magizh/validate_helper
 
-## Multi-Language Support
+## Japanese-Language Support
 
-jnhwkim's fork added multi-language support viewable at https://github.com/jnhwkim/validate.js
-
-Chinese - https://github.com/chilijung/validate.js
-
+Japanese - https://github.com/bossatama/validate.js

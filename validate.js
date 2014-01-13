@@ -1,6 +1,6 @@
 /*
- * validate.js 1.3.1
- * Copyright (c) 2011 - 2014 Rick Harrison, http://rickharrison.me
+ * validate.js 1.3
+ * Copyright (c) 2013 Rick Harrison, http://rickharrison.me
  * validate.js is open sourced under the MIT license.
  * Portions of validate.js are inspired by CodeIgniter.
  * http://rickharrison.github.com/validate.js
@@ -14,29 +14,29 @@
 
     var defaults = {
         messages: {
-            required: 'The %s field is required.',
-            matches: 'The %s field does not match the %s field.',
-            "default": 'The %s field is still set to default, please change.',
-            valid_email: 'The %s field must contain a valid email address.',
-            valid_emails: 'The %s field must contain all valid email addresses.',
-            min_length: 'The %s field must be at least %s characters in length.',
-            max_length: 'The %s field must not exceed %s characters in length.',
-            exact_length: 'The %s field must be exactly %s characters in length.',
-            greater_than: 'The %s field must contain a number greater than %s.',
-            less_than: 'The %s field must contain a number less than %s.',
-            alpha: 'The %s field must only contain alphabetical characters.',
-            alpha_numeric: 'The %s field must only contain alpha-numeric characters.',
-            alpha_dash: 'The %s field must only contain alpha-numeric characters, underscores, and dashes.',
-            numeric: 'The %s field must contain only numbers.',
-            integer: 'The %s field must contain an integer.',
-            decimal: 'The %s field must contain a decimal number.',
-            is_natural: 'The %s field must contain only positive numbers.',
-            is_natural_no_zero: 'The %s field must contain a number greater than zero.',
-            valid_ip: 'The %s field must contain a valid IP.',
-            valid_base64: 'The %s field must contain a base64 string.',
-            valid_credit_card: 'The %s field must contain a valid credit card number.',
-            is_file_type: 'The %s field must contain only %s files.',
-            valid_url: 'The %s field must contain a valid URL.'
+            required: '%s 欄は必須です。',
+            matches: '%s 欄が %s 欄と一致しません。',
+            "default": '%s 欄が初期値のままです。変更してください。',
+            valid_email: '%s 欄には正しいEmailアドレスを入力する必要があります。',
+            valid_emails: '%s 欄には正しいEmailアドレスを入力する必要があります。',
+            min_length: '%s 欄は最低 %s 文字以上でなければなりません。',
+            max_length: '%s 欄は %s 文字を超えてはいけません。',
+            exact_length: '%s 欄は %s 文字でなければなりません。',
+            greater_than: '%s 欄は最低 %s より大きい数字でなければなりません。',
+            less_than: '%s 欄は最低 %s より小さい数字でなければなりません。',
+            alpha: '%s 欄には、半角アルファベット以外は入力できません。',
+            alpha_numeric: '%s 欄には、半角英数字以外は入力できません。',
+            alpha_dash: '%s 欄には、半角英数字、アンダースコア(_)、ハイフン(-)以外は入力できません。',
+            numeric: '%s 欄には、数字以外は入力できません。',
+            integer: '%s 欄には、整数以外は入力できません。',
+            decimal: '%s 欄には、10進法以外は入力できません。',
+            is_natural: '%s 欄には、正の整数以外は入力できません。',
+            is_natural_no_zero: '%s 欄には、0より大きい整数以外は入力できません。',
+            valid_ip: '%s 欄は %s 有効なIPでなければなりません。',
+            valid_base64: '%s 欄は %s Base64の文字列でなければなりません。',
+            valid_credit_card: '%s 欄は %s 有効なクレジットカード番号でなければなりません。',
+            is_file_type: '%s 欄は %s ファイル種別でなければなりません。',
+            valid_url: '%s 欄は %s 有効なURLでなければなりません。'
         },
         callback: function(errors) {
 
@@ -97,7 +97,7 @@
              */
 
             if (field.names) {
-                for (var j = 0, fieldNamesLength = field.names.length; j < fieldNamesLength; j++) {
+                for (var j = 0; j < field.names.length; j++) {
                     this._addField(field, field.names[j]);
                 }
             } else {
@@ -124,7 +124,7 @@
         var i;
 
         if ((element.length > 0) && (element[0].type === 'radio' || element[0].type === 'checkbox')) {
-            for (i = 0, elementLength = element.length; i < elementLength; i++) {
+            for (i = 0; i < element.length; i++) {
                 if (element[i].checked) {
                     return element[i][attributeName];
                 }
@@ -269,7 +269,7 @@
                 method = parts[1];
                 param = parts[2];
             }
-
+            
             if (method.charAt(0) === '!') {
                 method = method.substring(1, method.length);
             }
@@ -338,7 +338,7 @@
 
             return (value !== null && value !== '');
         },
-
+        
         "default": function(field, defaultName){
             return field.value !== defaultName;
         },
@@ -360,7 +360,7 @@
         valid_emails: function(field) {
             var result = field.value.split(",");
 
-            for (var i = 0, resultLength = result.length; i < resultLength; i++) {
+            for (var i = 0; i < result.length; i++) {
                 if (!emailRegex.test(result[i])) {
                     return false;
                 }
